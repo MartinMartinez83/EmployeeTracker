@@ -1,6 +1,9 @@
 const util = require("util");
 const mysql = require("mysql");
 
+if(process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
 const connection = mysql.createConnection({
   host: "localhost",
   // Your username
@@ -9,6 +12,7 @@ const connection = mysql.createConnection({
   password: "Vatoloco1",
   database: "employees"
 });
+};
 
 connection.connect();
 
